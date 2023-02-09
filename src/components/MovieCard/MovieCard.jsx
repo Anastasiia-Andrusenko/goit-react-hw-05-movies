@@ -8,11 +8,6 @@ import Poster from "./Poster";
 
 
 const MovieCard = ({ items }) => {
-  // const [movieID, setMovieID] = useState('');
-  
-  // const onClick = (currentId) => {
-  //   setMovieID(currentId);
-  // };
   
   return <ul className={css.list}>
     {items.map(item => <li key={item.id} >

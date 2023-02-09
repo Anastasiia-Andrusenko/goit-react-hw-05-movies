@@ -70,10 +70,10 @@ const getClassName = ({ isActive }) => {
       <h3 className={css.title_extra}>additional information</h3>
       <ul className={css.extra_info_menu}>
         <li>
-          <NavLink className={getClassName} to='/movies/:movieId/cast'>Cast</NavLink>
+          <NavLink className={getClassName} to={`/movies/${movieId}/cast`}>Cast</NavLink>
         </li>
         <li>
-          <NavLink className={getClassName} to='/movies/:movieId/reviews'>Reviews</NavLink>
+          <NavLink className={getClassName} to={`/movies/${movieId}/reviews`}>Reviews</NavLink>
         </li>
       </ul>
     </div>

@@ -1,0 +1,27 @@
+.container {
+  margin-top: 40px;
+
+  border: 1px solid rgba(52, 77, 105, 0.3);
+  width: 90%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.36);
+  -webkit-box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.2);
+  -moz-box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.2);
+  transition: all 200ms linear;
+}
+
+.container:hover {
+  box-shadow: -1px 8px 30px 9px rgba(105, 52, 52, 0.5);
+  -webkit-box-shadow: -1px 8px 30px 9px rgba(105, 52, 52, 0.3);
+  -moz-box-shadow: -1px 8px 30px 9px rgba(105, 52, 52, 0.3);
+}
+
+.message {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(58, 58, 79, 0.549);
+}

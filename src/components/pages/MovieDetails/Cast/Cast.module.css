@@ -1,0 +1,55 @@
+.list {
+  display: flex;
+  overflow-x: scroll;
+
+  border-radius: 20px;
+  border: 1px solid rgba(52, 77, 105, 0.3);
+  width: 90%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.36);
+  -webkit-box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.2);
+  -moz-box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.2);
+  transition: all 250ms;
+}
+
+.list:hover {
+  box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.5);
+  -webkit-box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.3);
+  -moz-box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.3);
+}
+
+.item {
+  min-width: 300px;
+  margin: 10px;
+  border: 1px solid rgba(68, 68, 100, 0.5);
+  border-radius: 50px;
+  overflow: clip;
+}
+
+.name {
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.character {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgba(68, 68, 100, 0.5);
+  font-weight: 700;
+}
+
+.photo {
+  width: 300px;
+  background-color: gray;
+  height: 400px;
+  /* height: 300px;
+  border-radius: 50%; */
+  overflow: hidden;
+}
