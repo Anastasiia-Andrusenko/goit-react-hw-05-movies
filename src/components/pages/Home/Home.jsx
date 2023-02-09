@@ -6,23 +6,35 @@ import { MdMovieFilter } from 'react-icons/md';
 
 
 import { getTrendingMovies } from '../../../api/getMovies';
-import Poster from "./Poster";
+import MovieCard from "components/MovieCard/MovieCard";
 
 
 
 
-const Home = () => {
+
+const Home = ({id}) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     getTrendingMovies().then(response => {
-      // console.log(response);
+      // console.log(response.results);
       const arrayOfTrendingMovies = response.results;
       setItems(arrayOfTrendingMovies);
     })
   }, [setItems])
 
-  // getTrendingMovies();
+
+  // useEffect(() => {
+  //   if (!id) {
+  //     return;
+  //   }
+
+  //   getMovieDetails(id).then(response => {
+  //     console.log(response);
+  //   })
+
+  // }, [id])
+
 
 
   return <div className={css.container}>
@@ -30,12 +42,7 @@ const Home = () => {
       <MdMovieFilter className={css.icon} />
       <h2 className={css.title}>Trending today</h2>
     </div>
-    <ul className={css.list}>
-      {items.map(item => <li key={item.id} className={css.card}>
-        <Poster poster={item.poster_path} alt={item.title} />
-        <h3 className={css.name}>{item.title}</h3>
-      </li>)}
-    </ul>
+    <MovieCard items={items} movieId={id} />
   </div>
 }
 
