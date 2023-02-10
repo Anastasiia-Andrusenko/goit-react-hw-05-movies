@@ -5,6 +5,9 @@ import css from './Reviews.module.css';
 import { getReviews } from 'api/getMovies';
 import Message from 'components/Message/Message';
 
+var Scroll = require('react-scroll');
+var scroll = Scroll.animateScroll;
+
 const Reviews = () => {
   const { movieId } = useParams();
   const [items, setItems] = useState([]);
@@ -14,9 +17,11 @@ const Reviews = () => {
   
   useEffect(() => {
     getReviews(movieId).then(response => {
-      console.log(response.results);
+      // console.log(response.results);
       setItems(response.results);
     })
+
+    scroll.scrollTo(200);
 
   }, [movieId] )
 

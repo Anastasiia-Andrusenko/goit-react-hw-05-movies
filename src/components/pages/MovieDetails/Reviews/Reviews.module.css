@@ -1,7 +1,15 @@
 .container {
+  border-radius: 20px;
+  border: 1px solid rgba(52, 77, 105, 0.3);
   width: 90%;
   max-width: 900px;
   margin: 40px auto;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.36);
+  -webkit-box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.2);
+  -moz-box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.2);
+  transition: all 250ms;
 }
 
 .list {
@@ -12,12 +20,13 @@
 
 .item {
   position: relative;
-  border: 1px solid black;
-  border-radius: 30px;
-  height: 120px;
+  border: 1px solid rgba(52, 77, 105, 0.3);
+  border-radius: 20px;
+  max-height: 180px;
   overflow-y: scroll;
   padding: 0 10px 10px 10px;
   transform: scale(0.98);
+  transition: all 250ms;
 }
 
 .item:hover,
@@ -30,7 +39,7 @@
 }
 
 .author {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 15px;
   position: sticky;
@@ -40,5 +49,7 @@
 }
 
 .text {
-  padding: 10px;
+  margin: 12px;
+  line-height: 1.5rem;
+  color: rgba(21, 24, 42, 0.659);
 }

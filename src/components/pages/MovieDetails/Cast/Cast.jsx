@@ -1,8 +1,12 @@
 import css from './Cast.module.css';
-import Poster from 'components/MovieCard/Poster';
+import Poster from 'components/MovieCards/Poster';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from 'api/getMovies';
+// import { FiArrowRightCircle } from 'react-icons/fi';
+
+var Scroll = require('react-scroll');
+var scroll = Scroll.animateScroll;
 
 const Cast = () => {
   const [items, setItems] = useState([]);
@@ -19,6 +23,9 @@ const Cast = () => {
       setItems(cast);
     })
 
+
+    scroll.scrollTo(200);
+
   }, [movieId])
 
   
@@ -34,6 +41,7 @@ const Cast = () => {
             <p className={css.character}>{item.character}</p>
         </li>)}
       </ul>
+      {/* <FiArrowRightCircle className={css.arrow} /> */}
     </div>
   )
 }

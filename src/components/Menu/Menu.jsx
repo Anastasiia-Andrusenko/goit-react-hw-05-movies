@@ -1,8 +1,9 @@
 
 import { NavLink } from 'react-router-dom';
 import { BiCameraMovie } from 'react-icons/bi'
-
+import items from './items';
 import css from '../Menu/Menu.module.css';
+// import { element } from 'prop-types';
 
 
 // MdLocalMovies
@@ -18,18 +19,17 @@ const getClassName = ({ isActive }) => {
 
 
 const Menu = () => {
+  const elements = items.map(({ id, to, content, icon }) => (
+    <li key={id}>
+      <NavLink className={getClassName} to={to}>{icon}{content}</NavLink>
+    </li>
+  ))
+
   return (
     <div className={css.container}>
-      <BiCameraMovie className={css.icon}>
-        <NavLink className={getClassName} to='/'>Home</NavLink>
-      </BiCameraMovie>
+        <NavLink to='/'><BiCameraMovie className={css.icon}/></NavLink>
       <ul className={css.menu}>
-        <li>
-          <NavLink className={getClassName} to='/'>Home</NavLink>
-        </li>
-        <li>
-          <NavLink className={getClassName} to='/movies'>Movies</NavLink>
-        </li>
+        {elements}
       </ul>
     </div>
   )

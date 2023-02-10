@@ -1,22 +1,23 @@
+import { Suspense } from "react";
+import { NavLink, useParams, useNavigate, Outlet, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 import css from '../MovieDetails/MovieDetails.module.css';
 
-
-import { NavLink, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { MdArrowBackIos } from 'react-icons/md';
 import { FaTheaterMasks } from 'react-icons/fa';
 import { AiOutlineLike } from 'react-icons/ai';
 
 import { getMovieDetails } from '../../../api/getMovies';
 
-import Poster from "../../MovieCard/Poster";
+import Poster from "../../MovieCards/Poster";
 
 var Scroll = require('react-scroll');
 var scroll = Scroll.animateScroll;
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  // console.log(movieId);
+  const navigate = useNavigate();
 
   const [genres, setGenres] = useState('');
   const [title, setTitle] = useState('');
@@ -25,6 +26,10 @@ const MovieDetails = () => {
   const [poster, setPoster] = useState('');
   const [vote, setVote] = useState(0);
 
+  const location = useLocation();
+  const from = location.state?.from || "/";
+  // console.log(location.state.from);
+  const goBack = () => navigate(from);
 
   useEffect(() => {
     getMovieDetails(movieId).then(response => {
@@ -47,8 +52,8 @@ const getClassName = ({ isActive }) => {
 }
 
   return <div className={css.container}>
-    <div className={css.go_back}>
-      <p><MdArrowBackIos className={css.arrow} />back</p>
+    <div className={css.go_back} onClick={goBack}>
+      <p><MdArrowBackIos className={css.arrow}/>back</p>
     </div>
     <div className={css.movie}>
       <div className={css.poster}>
@@ -70,12 +75,15 @@ const getClassName = ({ isActive }) => {
       <h3 className={css.title_extra}>additional information</h3>
       <ul className={css.extra_info_menu}>
         <li>
-          <NavLink className={getClassName} to={`/movies/${movieId}/cast`}>Cast</NavLink>
+          <NavLink state={{from}} className={getClassName} to={`/movies/${movieId}/cast`}>Cast</NavLink>
         </li>
         <li>
-          <NavLink className={getClassName} to={`/movies/${movieId}/reviews`}>Reviews</NavLink>
+          <NavLink state={{from}} className={getClassName} to={`/movies/${movieId}/reviews`}>Reviews</NavLink>
         </li>
       </ul>
+      <Suspense fallback={<div>...loading</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   </div>
 }
