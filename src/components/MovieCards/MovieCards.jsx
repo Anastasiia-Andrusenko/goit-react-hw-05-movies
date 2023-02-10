@@ -1,6 +1,6 @@
 
 import { Link, useLocation } from 'react-router-dom';
-// import { useState } from "react";
+import PropTypes from "prop-types";
 
 import css from './MovieCard.module.css';
 
@@ -9,6 +9,7 @@ import Poster from "./Poster";
 
 
 const MovieCards = ({ items }) => {
+  // console.log(items);
   const location = useLocation();
   
   return <ul className={css.list}>
@@ -25,3 +26,12 @@ const MovieCards = ({ items }) => {
 }
 
 export default MovieCards;
+
+MovieCards.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    poster_path: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    release_date: PropTypes.string,
+  }).isRequired,)
+}

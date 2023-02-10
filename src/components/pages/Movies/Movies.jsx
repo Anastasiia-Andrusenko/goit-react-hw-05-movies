@@ -9,7 +9,7 @@ import SearchForm from './SearchForm';
 import css from '../Movies/Movies.module.css';
 
 
-const Movies = ({id}) => {
+const Movies = () => {
   const [items, setItems] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
@@ -31,7 +31,7 @@ const Movies = ({id}) => {
 
   return <div className={css.container}>
     <SearchForm onSubmit={onSubmit}/>
-    {items.length > 0 && <MovieCards items={items} movieId={id}/>}
+    {items.length > 0 && <MovieCards items={items}/>}
   </div>
 
 }

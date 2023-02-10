@@ -3,19 +3,11 @@ import { NavLink } from 'react-router-dom';
 import { BiCameraMovie } from 'react-icons/bi'
 import items from './items';
 import css from '../Menu/Menu.module.css';
-// import { element } from 'prop-types';
-
-
-// MdLocalMovies
-
-// IoIosPeople
-// VscFeedback
 
 
 const getClassName = ({ isActive }) => {
   return isActive ? `${css.link} ${css.current}` : css.link;
 }
-
 
 
 const Menu = () => {

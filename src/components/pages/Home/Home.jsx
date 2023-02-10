@@ -12,7 +12,8 @@ import MovieCards from "components/MovieCards/MovieCards";
 
 
 
-const Home = ({id}) => {
+const Home = () => {
+
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const Home = ({id}) => {
       <MdMovieFilter className={css.icon} />
       <h2 className={css.title}>Trending today</h2>
     </div>
-    <MovieCards items={items} movieId={id} />
+    <MovieCards items={items}/>
   </div>
 }
 

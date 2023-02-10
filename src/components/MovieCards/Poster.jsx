@@ -1,5 +1,4 @@
-// import { useState, useEffect } from "react";
-// import { getPoster } from '../../../api/getTrendingMovies';
+import PropTypes from "prop-types";
 import frame from '../../../src/frame.jpg';
 import css from './Poster.module.css';
 
@@ -15,3 +14,8 @@ const Poster = ({ poster, alt }) => {
 }
 
 export default Poster;
+
+Poster.propTypes = {
+  poster: PropTypes.string,
+  alt: PropTypes.string,
+}
