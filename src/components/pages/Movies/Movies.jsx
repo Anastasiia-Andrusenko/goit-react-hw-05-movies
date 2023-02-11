@@ -17,7 +17,6 @@ const Movies = () => {
   // console.log(query);
 
   const onSubmit = query => {
-    setItems([]);
     setSearchParams({ query });
   }
 
