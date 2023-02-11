@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import PropTypes from "prop-types";
 
 import css from '../Movies/Movies.module.css';
 
 
-const SearchForm = ({onSubmit}) => {
-  const [searchValue, setSearchValue] = useState('');
+const SearchForm = ({onSubmit, query }) => {
+  const [searchValue, setSearchValue] = useState(query ?? '');
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -15,6 +16,7 @@ const SearchForm = ({onSubmit}) => {
 
     onSubmit(searchValue);
   }
+
 
   return  <div className={css.search_bar}>
       <form className={css.form} onSubmit={handleSubmit}>
@@ -38,10 +40,16 @@ const SearchForm = ({onSubmit}) => {
         type="search"
         autoComplete='off'
         placeholder="Search movies by name"
-        onChange={(evt) => {setSearchValue(evt.currentTarget.value.toLowerCase().trim())}}
+        onChange={(evt) => { setSearchValue(evt.currentTarget.value.toLowerCase().trim()) }}
+        value={searchValue}
       />
     </form>
     </div>
 }
 
 export default SearchForm;
+
+SearchForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  query: PropTypes.string,
+}

@@ -33,7 +33,7 @@ const Movies = () => {
   const loadMoreBtn = () => {setPage(prevPage => (prevPage + 1))};
 
   return <div className={css.container}>
-    <SearchForm onSubmit={onSubmit}/>
+    <SearchForm onSubmit={onSubmit} query = {query}/>
     {items.length > 0 && <MovieCards items={items} />}
     {items.length !== 0 && <LoadMore loadMoreBtn={loadMoreBtn}>Load more</LoadMore>}
   </div>
