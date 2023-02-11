@@ -8,6 +8,7 @@ import { MdMovieFilter } from 'react-icons/md';
 import { getTrendingMovies } from '../../../api/getMovies';
 import MovieCards from "components/MovieCards/MovieCards";
 import LoadMore from '../../LoadMore/LoadMore';
+import ScrollButton from '../../ScrollButton/ScrollButton';
 
 
 
@@ -22,7 +23,6 @@ const Home = () => {
     getTrendingMovies(page).then(response => {
       // console.log(response.results);
       const arrayOfTrendingMovies = response.results;
-      // запрос робиться двічі, як цього позбутися? не можу вигадати
       setItems(prevItems => [...prevItems, ...arrayOfTrendingMovies]);
     }).catch((err) => console.log(err.message))
   }, [page])
@@ -36,6 +36,7 @@ const Home = () => {
     </div>
     <MovieCards items={items} />
     <LoadMore loadMoreBtn={loadMoreBtn}>Load more</LoadMore>
+    <ScrollButton/>
   </div>
 }
 

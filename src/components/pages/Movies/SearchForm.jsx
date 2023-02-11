@@ -13,8 +13,10 @@ const SearchForm = ({onSubmit, query }) => {
     if (searchValue.trim() === '') {
       return;
     }
-
-    onSubmit(searchValue);
+    
+    if (searchValue !== query) {
+      onSubmit(searchValue);
+    }
   }
 
 
