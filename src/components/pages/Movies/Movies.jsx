@@ -17,7 +17,8 @@ const Movies = () => {
   // console.log(query);
 
   const onSubmit = query => {
-    setSearchParams({query});
+    setItems([]);
+    setSearchParams({ query });
   }
 
   useEffect(() => {
