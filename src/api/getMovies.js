@@ -49,3 +49,9 @@ export const getPersonDetails = async (personId) => {
 
   return await fetch(`${baseURL}${personId}?api_key=${APIkey}&language=en-US`).then(response => response.json());
 }
+
+export const getTrailer = async (movieId) => {
+  const baseURL = 'https://api.themoviedb.org/3/movie/'
+
+  return await fetch(`${baseURL}${movieId}/videos?api_key=${APIkey}&language=en-US`).then(response => response.json());
+}

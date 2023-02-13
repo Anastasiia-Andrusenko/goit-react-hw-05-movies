@@ -1,3 +1,4 @@
+
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -9,6 +10,7 @@ const MovieDetails = lazy(() => import("./components/pages/MovieDetails/MovieDet
 const Cast = lazy(() => import("./components/pages/MovieDetails/Cast/Cast"));
 const Reviews = lazy(() => import("./components/pages/MovieDetails/Reviews/Reviews"));
 const Person = lazy(() => import("./components/pages/Person/Person"));
+const Trailer = lazy(() => import("./components/pages/MovieDetails/Trailer/Trailer"));
 
 
 const UserRoutes = () => {
@@ -19,7 +21,8 @@ const UserRoutes = () => {
         <Route path="/movies" element={<Movies />}/>
         <Route path="/movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews/>}/>
+          <Route path="reviews" element={<Reviews />} />
+          <Route path="trailer" element={<Trailer/>}/>
         </Route>
         <Route path="/person/:personId" element={<Person/>} />
         <Route path="*" element={<NotFoundPage/>}/>

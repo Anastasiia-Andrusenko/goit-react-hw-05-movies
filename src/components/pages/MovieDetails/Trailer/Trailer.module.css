@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto;
+}
+
+.video {
+  display: block;
+  width: 90%;
+  max-width: 900px;
+  /* padding: 16px; */
+  border: 1px solid rgba(52, 77, 105, 0.3);
+  border-radius: 20px;
+  box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.36);
+  -webkit-box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.2);
+  -moz-box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.2);
+  transform: scale(0.8);
+  transition: all 250ms;
+}
+
+.video:hover,
+.video:focus {
+  transform: scale(1.1);
+  border: none;
+  box-shadow: 0px 8px 300px 500px rgba(30, 40, 50, 0.8);
+  -webkit-box-shadow: 0px 8px 300px 500px rgba(30, 40, 50, 0.8);
+  -moz-box-shadow: 0px 8px 300px 500px rgba(30, 40, 50, 0.8);
+}

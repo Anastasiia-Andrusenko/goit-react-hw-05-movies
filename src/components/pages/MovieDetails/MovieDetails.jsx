@@ -75,6 +75,9 @@ const getClassName = ({ isActive }) => {
       <h3 className={css.title_extra}>additional information</h3>
       <ul className={css.extra_info_menu}>
         <li>
+          <NavLink state={{from}} className={getClassName} to={`/movies/${movieId}/trailer`}>Trailer</NavLink>
+        </li>
+        <li>
           <NavLink state={{from}} className={getClassName} to={`/movies/${movieId}/cast`}>Cast</NavLink>
         </li>
         <li>
