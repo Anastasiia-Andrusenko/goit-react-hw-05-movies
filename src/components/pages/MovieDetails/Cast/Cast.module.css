@@ -37,6 +37,7 @@
 }
 
 .item {
+  color: inherit;
   min-width: 220px;
   margin: 10px;
   padding: 10px;
