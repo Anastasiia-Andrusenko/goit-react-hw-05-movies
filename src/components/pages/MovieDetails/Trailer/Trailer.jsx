@@ -22,7 +22,7 @@ const Trailer = () => {
 
   return <div className={css.container}>
     <iframe title={nanoid()} id="player" type="text/html" width="720" height="480"
-  src={`http://www.youtube.com/embed/${key}`} className={css.video}></iframe>
+  src={`https://www.youtube.com/embed/${key}`} className={css.video}></iframe>
   </div>
 }
 
