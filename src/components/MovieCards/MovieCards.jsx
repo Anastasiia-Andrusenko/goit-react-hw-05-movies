@@ -12,9 +12,9 @@ const MovieCards = ({ items }) => {
   console.log(items);
   const location = useLocation();
 
-  const sortArrayByDate = (items) => {
-    items.sort()
-  }
+  // const sortArrayByDate = (items) => {
+  //   items.sort()
+  // }
   
   return <ul className={css.list}>
     {items.map(item => <li key={item.id} >
