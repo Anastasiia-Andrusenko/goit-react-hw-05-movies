@@ -21,7 +21,7 @@ const Reviews = () => {
       setItems(response.results);
     })
 
-    scroll.scrollTo(200);
+    scroll.scrollTo(500);
 
   }, [movieId] )
 

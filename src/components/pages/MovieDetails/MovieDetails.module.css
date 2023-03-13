@@ -151,3 +151,7 @@
   cursor: pointer;
   font-weight: 900;
 }
+
+.loader {
+  margin-left: 50vw;
+}

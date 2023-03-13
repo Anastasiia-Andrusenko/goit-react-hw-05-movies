@@ -3,6 +3,7 @@ import { NavLink, useParams, useNavigate, Outlet, useLocation, Link } from 'reac
 import { useEffect, useState } from 'react';
 
 import css from '../MovieDetails/MovieDetails.module.css';
+import { Oval } from 'react-loader-spinner';
 
 import { MdArrowBackIos } from 'react-icons/md';
 import { FaTheaterMasks } from 'react-icons/fa';
@@ -75,7 +76,7 @@ const getClassName = ({ isActive }) => {
       <div className={css.poster}>
         <Poster poster={poster} alt={title} />
       </div>
-      <div className={css.detail}>
+      {title ? <div className={css.detail}>
         <h2 className={css.name}>{title}</h2>
         <p className={css.year}>{date}</p>
         <p className={css.info}>User score
@@ -89,7 +90,19 @@ const getClassName = ({ isActive }) => {
         <Link to={`/director/${directorID}`} state={{ from: location }} poster={dirPhoto}>
           <p className={classNames(css.info, css.director)}>{director ? director : 'No info'}</p>
         </Link>
-      </div>
+      </div> : <Oval
+          className={css.loader}
+          height={50}
+          width={50}
+          color="#AC8BCC"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel='oval-loading'
+          secondaryColor="#C2B6D1"
+          strokeWidth={6}
+          strokeWidthSecondary={6}
+        />}
     </div>
     <div className={css.add_info}>
       <h3 className={css.title_extra}>additional information</h3>

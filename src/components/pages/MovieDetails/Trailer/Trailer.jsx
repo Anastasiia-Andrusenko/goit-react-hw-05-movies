@@ -10,6 +10,9 @@ const Trailer = () => {
   const [key, setKey] = useState();
   const { movieId } = useParams();
 
+  var Scroll = require('react-scroll');
+  var scroll = Scroll.animateScroll;
+
   useEffect(() => {
     getTrailer(movieId).then(response => {
       // console.log(response.results);
@@ -18,7 +21,9 @@ const Trailer = () => {
       setKey(officialTrailer.key);
     })
 
-  }, [movieId])
+    scroll.scrollTo(800);
+
+  }, [movieId, scroll]);
 
   return <div className={css.container}>
     <iframe title={nanoid()} id="player" type="text/html" width="720" height="480"

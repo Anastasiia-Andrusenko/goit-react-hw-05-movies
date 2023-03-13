@@ -10,6 +10,7 @@ import ScrollButton from '../../ScrollButton/ScrollButton';
 import css from './Person.module.css';
 import { FaBirthdayCake } from 'react-icons/fa';
 import { MdArrowBackIos } from 'react-icons/md';
+import { Oval } from 'react-loader-spinner';
 
 const Person = () => {
   const { personId } = useParams();
@@ -55,7 +56,7 @@ const Person = () => {
       <p><MdArrowBackIos className={css.arrow}/>back</p>
     </div>
     <div className={css.container}>
-      <article className={css.person}>
+      {state.name ? <article className={css.person}>
         <div className={css.photo}>
           <Poster poster={state.profile_path} alt={state.name} />
         </div>
@@ -67,7 +68,19 @@ const Person = () => {
           <p className={css.place}>{state.place_of_birth === null ? 'No info' : state.place_of_birth}</p>
           <p className={css.biography}>{state.biography === '' ? 'No info' : state.biography}</p>
         </div>
-      </article>
+      </article> : <Oval
+          className={css.loader}
+          height={50}
+          width={50}
+          color="#AC8BCC"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel='oval-loading'
+          secondaryColor="#C2B6D1"
+          strokeWidth={6}
+          strokeWidthSecondary={6}
+        />}
     <h3 className={css.title}>Movies with {state.name}</h3>
     <MovieCards items={items} />
     <ScrollButton/>

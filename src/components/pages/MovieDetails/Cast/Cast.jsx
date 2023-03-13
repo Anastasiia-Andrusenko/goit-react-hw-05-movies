@@ -27,7 +27,7 @@ const Cast = () => {
       setItems(cast);
     })
 
-    scroll.scrollTo(200);
+    scroll.scrollTo(500);
 
   }, [movieId]);
 
