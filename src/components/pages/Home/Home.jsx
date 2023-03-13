@@ -35,7 +35,7 @@ const Home = () => {
       <h2 className={css.title}>Trending today</h2>
     </div>
     <MovieCards items={items} />
-    <LoadMore loadMoreBtn={loadMoreBtn}>Load more</LoadMore>
+    {items.length !== 0 && <LoadMore loadMoreBtn={loadMoreBtn}>Load more</LoadMore>}
     <ScrollButton/>
   </div>
 }

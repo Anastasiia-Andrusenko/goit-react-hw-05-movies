@@ -9,7 +9,7 @@ import Poster from "./Poster";
 
 
 const MovieCards = ({ items }) => {
-  console.log(items);
+  // console.log(items);
   const location = useLocation();
 
   // const sortArrayByDate = (items) => {

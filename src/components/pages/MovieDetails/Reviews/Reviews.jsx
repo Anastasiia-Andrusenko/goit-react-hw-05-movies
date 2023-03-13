@@ -26,7 +26,7 @@ const Reviews = () => {
   }, [movieId] )
 
 
-  return ( items.length === 0 ? <Message/> :
+  return ( items.length === 0 ? <Message text='Sorry, no reviews yet'/> :
     <div className={css.container}>
       <ul className={css.list}>
         {items.map(item => 

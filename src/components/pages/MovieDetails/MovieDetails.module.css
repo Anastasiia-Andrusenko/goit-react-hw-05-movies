@@ -140,3 +140,14 @@
   overflow: hidden;
   margin: auto;
 }
+
+.director {
+  color: inherit;
+  transition: all 350ms;
+}
+
+.director:hover {
+  /* text-shadow: 0px 0px 16px rgb(0, 93, 79); */
+  cursor: pointer;
+  font-weight: 900;
+}

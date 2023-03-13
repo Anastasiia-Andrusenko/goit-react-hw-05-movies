@@ -37,3 +37,7 @@ ul {
 img {
   display: block;
 }
+
+a {
+  color: inherit;
+}

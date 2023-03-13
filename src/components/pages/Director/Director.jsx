@@ -1,20 +1,17 @@
-
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {getMoviesByPerson, getPersonDetails} from '../../../api/getMovies';
 import Poster from 'components/MovieCards/Poster';
-import MovieCards from 'components/MovieCards/MovieCards';
-
+// import MovieCards from 'components/MovieCards/MovieCards';
 import ScrollButton from '../../ScrollButton/ScrollButton';
-
-import css from './Person.module.css';
+import css from './Director.module.css';
 import { FaBirthdayCake } from 'react-icons/fa';
 import { MdArrowBackIos } from 'react-icons/md';
 
-const Person = () => {
+const Director = () => {
   const { personId } = useParams();
   // console.log(personId);
-  const [items, setItems] = useState([]);
+  // const [items, setItems] = useState([]);
   const [state, setState] = useState({
     name: '',
     birthday: '',
@@ -45,7 +42,7 @@ const Person = () => {
 
     getMoviesByPerson(personId).then(response => {
       // console.log(response.cast);
-      setItems(response.cast);
+      // setItems(response.cast);
     })
 
   }, [personId]);
@@ -68,11 +65,11 @@ const Person = () => {
           <p className={css.biography}>{state.biography === '' ? 'No info' : state.biography}</p>
         </div>
       </article>
-    <h3 className={css.title}>Movies with {state.name}</h3>
-    <MovieCards items={items} />
+    {/* <h3 className={css.title}>Movies with {state.name}</h3>
+    <MovieCards items={items} /> */}
     <ScrollButton/>
   </div>
   </>
 }
 
-export default Person;
+export default Director;

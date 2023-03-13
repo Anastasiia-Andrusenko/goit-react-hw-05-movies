@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { NavLink, useParams, useNavigate, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, useParams, useNavigate, Outlet, useLocation, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import css from '../MovieDetails/MovieDetails.module.css';
@@ -7,10 +7,12 @@ import css from '../MovieDetails/MovieDetails.module.css';
 import { MdArrowBackIos } from 'react-icons/md';
 import { FaTheaterMasks } from 'react-icons/fa';
 import { AiOutlineLike } from 'react-icons/ai';
+import { GiDirectorChair } from 'react-icons/gi';
 
-import { getMovieDetails } from '../../../api/getMovies';
+import { getMovieDetails, getMovieCredits } from '../../../api/getMovies';
 
 import Poster from "../../MovieCards/Poster";
+import classNames from "classnames";
 
 var Scroll = require('react-scroll');
 var scroll = Scroll.animateScroll;
@@ -25,6 +27,9 @@ const MovieDetails = () => {
   const [overview, setOverview] = useState('');
   const [poster, setPoster] = useState('');
   const [vote, setVote] = useState(0);
+  const [director, setDirector] = useState('');
+  const [directorID, setDirectorID] = useState();
+  const [dirPhoto, setDirPhoto] = useState('');
 
   const location = useLocation();
   const from = location.state?.from || "/";
@@ -41,6 +46,17 @@ const MovieDetails = () => {
       setOverview(overview);
       setPoster(poster_path);
       setVote(Math.round(vote_average * 10));
+    });
+
+    getMovieCredits(movieId).then(response => {
+      const { crew } = response;
+
+      const directing = crew.find(obj => obj.known_for_department === "Directing");
+      setDirector(directing.original_name);
+      setDirectorID(directing.id);
+      setDirPhoto(directing.profile_path);
+      // console.log(crew);
+      // console.log(directing);
     })
 
     scroll.scrollToTop();
@@ -64,11 +80,15 @@ const getClassName = ({ isActive }) => {
         <p className={css.year}>{date}</p>
         <p className={css.info}>User score
           <AiOutlineLike className={css.icon} />
-          <span className={css.number}>{vote}</span> %</p>
+          <span className={css.number}>{vote ? `${vote} %` : 'No info'}</span></p>
         <p className={css.title}>Overview</p>
-        <p className={css.info}>{overview}</p>
+        <p className={css.info}>{overview ? overview : 'No info'}</p>
         <p className={css.title}>Genres <FaTheaterMasks className={css.icon}/></p>
-        <p className={css.info}>{genres}</p>
+        <p className={css.info}>{genres ? genres : 'No info'}</p>
+        <p className={css.title}>Director<GiDirectorChair className={css.icon} /></p>
+        <Link to={`/director/${directorID}`} state={{ from: location }} poster={dirPhoto}>
+          <p className={classNames(css.info, css.director)}>{director ? director : 'No info'}</p>
+        </Link>
       </div>
     </div>
     <div className={css.add_info}>

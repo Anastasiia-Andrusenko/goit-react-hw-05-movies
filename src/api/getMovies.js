@@ -40,7 +40,7 @@ export const getReviews = async (movieId) => {
 export const getMoviesByPerson = async (personId) => {
   const baseURL = 'https://api.themoviedb.org/3/person/'
 
-  // movie_credits?api_key=<<api_key>>&language=en-US
+
   return await fetch(`${baseURL}${personId}/movie_credits?api_key=${APIkey}&language=en-US`).then(response => response.json());
 }
 

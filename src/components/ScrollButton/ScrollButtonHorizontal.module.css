@@ -1,0 +1,20 @@
+.btn {
+  cursor: pointer;
+  position: absolute;
+  bottom: 140px;
+  line-height: 0;
+  font-size: 40px;
+  color: rgba(19, 17, 27, 0.4);
+}
+
+.btn:hover {
+  color: rgba(19, 17, 27, 0.8);
+}
+
+.right {
+  right: -20px;
+}
+
+.left {
+  left: -20px;
+}

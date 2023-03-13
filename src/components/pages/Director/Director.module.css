@@ -35,10 +35,6 @@
   vertical-align: top;
 }
 
-/* .info {
-  margin-right: auto;
-} */
-
 .person {
   display: flex;
   width: fit-content;

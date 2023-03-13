@@ -3,7 +3,9 @@ import Poster from 'components/MovieCards/Poster';
 import { useEffect, useState } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import { getMovieCredits } from 'api/getMovies';
-
+import Message from 'components/Message/Message';
+import {ScrollButtonRight, ScrollButtonLeft} from 'components/ScrollButton/ScrollButtonHorizontal';
+// import { IoIosArrowDropright } from 'react-icons/io';
 
 var Scroll = require('react-scroll');
 var scroll = Scroll.animateScroll;
@@ -20,20 +22,32 @@ const Cast = () => {
   useEffect(() => {
     getMovieCredits(movieId).then(response => {
       // console.log(response.cast);
-      const cast = response.cast.slice(0, 12);
+      const cast = response.cast.slice(0, 16);
       // console.log(cast);
       setItems(cast);
     })
 
-
     scroll.scrollTo(200);
 
-  }, [movieId])
+  }, [movieId]);
+
+  const scrollToRight = () => {
+    const castList = document.getElementById('castList');
+
+    castList.scrollLeft += 515;
+  }
+
+  const scrollToLeft = () => {
+    const castList = document.getElementById('castList');
+
+    castList.scrollLeft = 0;
+  }
 
   
-  return (
+  return ( items.length === 0 ? <Message text='Sorry, no information yet'/> :
     <div className={css.container}>
-      <ul className={css.list}>
+      <div className={css.cast}>
+        <ul className={css.list} id='castList'>
         {items.map(item => 
           <Link key={item.id} to={`/person/${item.id}`} state={{from: location}} className={css.item} poster={item.profile_path}>
             <li id={item.id}>
@@ -44,7 +58,14 @@ const Cast = () => {
               <p className={css.character}>{item.character}</p>
             </li>
           </Link>)}
-      </ul>
+        </ul>
+        <div onClick={scrollToLeft}>
+          <ScrollButtonLeft/>
+        </div>
+        <div onClick={scrollToRight} >
+          <ScrollButtonRight/>
+        </div>
+      </div>
     </div>
   )
 }

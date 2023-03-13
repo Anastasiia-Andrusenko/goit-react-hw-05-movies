@@ -1,8 +1,8 @@
 import css from './Message.module.css';
 
-const Message = () => {
+const Message = ({text}) => {
   return <div className={css.container}>
-    <p className={css.message}>Sorry, no reviews yet</p>
+    <p className={css.message}>{text}</p>
   </div>
 }
 

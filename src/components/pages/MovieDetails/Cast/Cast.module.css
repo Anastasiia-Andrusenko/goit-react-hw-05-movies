@@ -15,6 +15,7 @@
 .list {
   display: flex;
   overflow-x: scroll;
+  scroll-behavior: smooth;
 
   border-radius: 20px;
   border: 1px solid rgba(52, 77, 105, 0.3);
@@ -72,4 +73,18 @@
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
+}
+
+.cast {
+  margin: auto;
+  position: relative;
+}
+
+.arrow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  font-size: 40px;
+  box-shadow: inset 0px 0px 12px 10px rgba(66, 68, 90, 1);
 }
