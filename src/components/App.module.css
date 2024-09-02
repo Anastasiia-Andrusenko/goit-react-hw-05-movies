@@ -1,3 +1,8 @@
-/* .body {
-  background-color: rgba(13, 13, 20, 0.8);
-} */
+.body {
+  background-image: url(../popcorn.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+}

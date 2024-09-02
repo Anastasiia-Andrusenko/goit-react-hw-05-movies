@@ -17,6 +17,7 @@
   overflow-x: scroll;
   scroll-behavior: smooth;
 
+  background-color: rgb(255, 246, 236, 0.8);
   border-radius: 20px;
   border: 1px solid rgba(52, 77, 105, 0.3);
   width: 90%;

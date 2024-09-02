@@ -1,10 +1,15 @@
 .container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   padding: 16px 30px;
+  background-color: rgb(255, 246, 236);
   box-shadow: -1px 10px 30px 3px rgba(52, 77, 105, 0.67);
   -webkit-box-shadow: -1px 10px 30px 3px rgba(52, 77, 105, 0.4);
   -moz-box-shadow: -1px 10px 30px 3px rgba(52, 77, 105, 0.4);
+  z-index: 95;
 }
 
 .menu {
@@ -17,7 +22,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
+  padding: 10px 16px;
+  font-size: 17px;
   border-radius: 10px;
   color: inherit;
   transition: all 250ms linear;

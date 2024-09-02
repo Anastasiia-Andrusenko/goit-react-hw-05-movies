@@ -1,6 +1,5 @@
 .container {
-  padding: 16px 30px;
-  margin-top: 40px;
+  padding: 100px 30px;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -10,6 +9,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: rgb(255, 246, 236);
+  text-shadow: 0px 0px 21px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 12px;
+  z-index: 100;
 }
 
 .title {

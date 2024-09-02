@@ -1,8 +1,12 @@
 .btn {
   cursor: pointer;
   position: fixed;
-  bottom: 10px;
+  bottom: 40px;
   right: 5vw;
   font-size: 30px;
   color: rgba(19, 17, 27, 0.6);
+}
+
+.btn:hover {
+  color: rgba(19, 17, 27, 0.7);
 }

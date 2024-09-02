@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { getMoviesByQuery } from '../../../api/getMovies';
 import { useSearchParams } from 'react-router-dom';
@@ -22,28 +21,39 @@ const Movies = () => {
   const onSubmit = query => {
     setItems([]);
     setSearchParams({ query });
-  }
+  };
 
   useEffect(() => {
     if (query) {
-      getMoviesByQuery(query, page).then(response => {
-        setItems(prevItems => [...prevItems, ...response.results]);
-        setTotalPage(response.total_pages);
-        setTotalResults(response.total_results);
-      }).catch((error) => console.log(error.message));
+      getMoviesByQuery(query, page)
+        .then(response => {
+          setItems(prevItems => [...prevItems, ...response.results]);
+          setTotalPage(response.total_pages);
+          setTotalResults(response.total_results);
+        })
+        .catch(error => console.log(error.message));
     }
-  }, [query, page])
+  }, [query, page]);
 
-  const loadMoreBtn = () => {setPage(prevPage => (prevPage + 1))};
+  const loadMoreBtn = () => {
+    setPage(prevPage => prevPage + 1);
+  };
 
-  return <div className={css.container}>
-    <SearchForm onSubmit={onSubmit} query = {query}/>
-    {items.length > 0 && <MovieCards items={items} />}
-    {totalResults === 0 && <Message text='No matches. Please, try again.'/>}
-    {items.length !== 0 && totalPage !== page && <LoadMore loadMoreBtn={loadMoreBtn}>Load more</LoadMore>}
-    <ScrollButton/>
-  </div>
-
-}
+  return (
+    <div className={css.page}>
+      <div className={css.container}>
+        <SearchForm onSubmit={onSubmit} query={query} />
+        {items.length > 0 && <MovieCards items={items} />}
+        {totalResults === 0 && (
+          <Message text="No matches. Please, try again." />
+        )}
+        {items.length !== 0 && totalPage !== page && (
+          <LoadMore loadMoreBtn={loadMoreBtn}>Load more</LoadMore>
+        )}
+        <ScrollButton />
+      </div>
+    </div>
+  );
+};
 
 export default Movies;

@@ -6,8 +6,7 @@
 
 .video {
   display: block;
-  width: 90%;
-  max-width: 900px;
+  width: 1000px;
   /* padding: 16px; */
   border: 1px solid rgba(52, 77, 105, 0.3);
   border-radius: 20px;
@@ -16,15 +15,14 @@
   -moz-box-shadow: -1px 8px 30px 9px rgba(52, 77, 105, 0.2);
   transform: scale(0.8);
   transition: all 250ms;
+  z-index: 110;
 }
 
 .video:hover,
 .video:focus {
-  position: absolute;
   bottom: 200px;
-  transform: scale(1.25);
   border: none;
-  box-shadow: 0px 8px 10px 300px rgba(14, 22, 29, 0.8);
-  -webkit-box-shadow: 0px 8px 10px 300px rgba(14, 22, 29, 0.8);
-  -moz-box-shadow: 0px 8px 10px 300px rgba(14, 22, 29, 0.8);
+  box-shadow: 0px 8px 100px 900px rgba(7, 11, 35, 0.8);
+  -webkit-box-shadow: 0px 8px 100px 900px rgba(7, 11, 35, 0.8);
+  -moz-box-shadow: 0px 8px 100px 900px rgba(7, 11, 35, 0.8);
 }

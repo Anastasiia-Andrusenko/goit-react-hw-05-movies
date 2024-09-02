@@ -13,9 +13,10 @@
 }
 
 .search_bar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 50vw;
+  z-index: 100;
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
