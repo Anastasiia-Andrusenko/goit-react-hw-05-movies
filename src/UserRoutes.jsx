@@ -7,7 +7,7 @@ import Trailer from 'components/pages/MovieDetails/Trailer/Trailer';
 import Movies from 'components/pages/Movies/Movies';
 import NotFoundPage from 'components/pages/NotFoundPage/NotFoundPage';
 import Person from 'components/pages/Person/Person';
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage/NotFoundPage'));
